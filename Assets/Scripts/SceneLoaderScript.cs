@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class SceneLoader : MonoBehaviour
+public class SceneLoaderScript : MonoBehaviour
 {
     public void LoadNextScene()
     {
@@ -18,5 +18,17 @@ public class SceneLoader : MonoBehaviour
     {
         // First scene
         SceneManager.LoadScene(0);
+    }
+
+    public void LoadSceneAfterCountry()
+    {
+        if (Globals.countryNameValid)
+        {
+            // Current scene
+            int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+
+            // Next scene
+            SceneManager.LoadScene(currentSceneIndex + 1);
+        }
     }
 }
